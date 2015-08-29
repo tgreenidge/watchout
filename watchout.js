@@ -12,12 +12,33 @@ var moveEnemies = function(node){
 
 var playerX = 800;
 var playerY = 450;
+var collisions = 0;
+var currentScore = 0;
+var highScore = 0;
 
 var drag = d3.behavior.drag()
-  .on("drag", function() {player.attr("cx", d3.event.x)
-                                .attr("cy", d3.event.y);
-                          playerX = d3.event.x;
-                          playerY = d3.event.y;});
+  .on("drag", function() {
+   
+  playerX = d3.event.x;
+  playerY = d3.event.y;
+
+  if (playerX > 900){
+    playerX = 890;
+  } 
+  if (playerX < 0){
+    playerX = 10;
+  }
+  if (playerY > 580){
+    playerY = 570;
+  } 
+  if (playerY < 0){
+    playerY = 10;
+  }
+    
+  player.attr("cx", playerX)
+        .attr("cy", playerY);
+});
+
 var player = d3.select(".player").call(drag);
 
 var collision = false;
@@ -44,12 +65,15 @@ var checkCollision = function() {
 moveEnemies(d3.selectAll(".enemy"));
 d3.timer(checkCollision);
 setInterval(function(){
-  if(collision){
-    console.log("collision");
+  if (collision){
     collision = false;
+    highScore = currentScore > highScore ? currentScore : highScore;
+    currentScore = 0;
+    collisions++;
+  } else {
+    currentScore += 5;
   }
+  d3.selectAll(".high").text(highScore);
+  d3.selectAll(".current").text(currentScore);
+  d3.selectAll(".collisions").text(collisions);
 }, 500);
-
-  
-
-
