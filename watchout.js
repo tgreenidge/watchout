@@ -1,26 +1,31 @@
 // start slingin' some d3 here.
+var enemies = d3.selectAll(".enemy");
 
-var moveEnemies = function(){
-  var newCoordinates = [];
+var getCoordinates = function(){
+var newCoordinates = [];
   for(var i = 0; i < 20; i++){
     var temp = [];
     temp.push(Math.random() * 840 + 30);
     temp.push(Math.random() * 520 + 30);
     newCoordinates.push(temp);
   }
+  return newCoordinates;
+};
 
-  //select all enemies
-  d3.selectAll(".enemy")
-  .data(newCoordinates)
+var moveEnemies = function(node){
+  var newCoordinates = getCoordinates();
+  node.data(newCoordinates)
   .transition()
   .attr("x", function(d) { return d[0]; })
   .attr("y", function(d) { return d[1]; })
-  .duration(500)
-  .ease("cubic-in-out");
+  .duration(1000)
+  .ease("cubic-in-out")
+  .each("end", function(){
+    moveEnemies(d3.select(this));
+  });
 };
 
-//call moveEnemies (setInterval)
-setInterval( moveEnemies , 1000);
+moveEnemies(enemies);
 
 var drag = d3.behavior.drag()
   .on("drag", function() {circle.attr("cx", d3.event.x)
