@@ -1,8 +1,8 @@
-// start slingin' some d3 here.
+// moves enemies
 var moveEnemies = function(node){
   node.transition()
-  .attr("x",  Math.random() * 840 + 30 )
-  .attr("y",  Math.random() * 520 + 30 )
+  .attr("x",  Math.random() * 840 + 30)
+  .attr("y",  Math.random() * 520 + 30)
   .duration(1000)
   .ease("cubic-in-out")
   .each("end", function(){
@@ -10,12 +10,11 @@ var moveEnemies = function(node){
   });
 };
 
-var playerX = 800;
-var playerY = 450;
 var collisions = 0;
 var currentScore = 0;
 var highScore = 0;
 
+// implements drag behavior of player node
 var drag = d3.behavior.drag()
   .on("drag", function() {
    
@@ -38,9 +37,13 @@ var drag = d3.behavior.drag()
   player.attr("cx", playerX)
         .attr("cy", playerY);
 });
-
 var player = d3.select(".player").call(drag);
 
+// stores current position of player node
+var playerX = 800;
+var playerY = 450;
+
+// checks for collision between player and any enemy nodes
 var collision = false;
 var checkCollision = function() {
   var locations =[];
@@ -62,8 +65,13 @@ var checkCollision = function() {
   }
 };
 
+// places enemies in window and starts game
 moveEnemies(d3.selectAll(".enemy"));
+
+// runs continuous check for collisions
 d3.timer(checkCollision);
+
+// 500ms update to scores, collision count, collision test boolean
 setInterval(function(){
   if (collision){
     collision = false;

@@ -3,3 +3,58 @@
 /* Note: an asteroid image is included in this repo.
 Feel free to use it if you like. */
 
+
+
+@-webkit-keyframes rotate { 
+  0% { 
+      -webkit-transform: rotate(0deg); 
+  } 100% { 
+      -webkit-transform: rotate(360deg); 
+  }
+}
+
+@-moz-keyframes rotate { 
+  0% { 
+      -webkit-transform: rotate(0deg); 
+  } 100% { 
+      -webkit-transform: rotate(360deg); 
+  }
+}
+
+@-o-keyframes rotate { 
+  0% { 
+      -webkit-transform: rotate(0deg); 
+  } 100% { 
+      -webkit-transform: rotate(360deg); 
+  }
+}
+
+@keyframes rotate { 
+  0% { 
+      -webkit-transform: rotate(0deg); 
+  } 100% { 
+      -webkit-transform: rotate(360deg); 
+  }
+}
+
+.shuriken {
+  -webkit-animation: rotate 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  width: 40px;
+  height: 40px;
+
+  -moz-keyframes: rotate 1s infinite linear;
+  -moz-keyframes-transform-origin: 50% 50%;
+  width: 40px;
+  height: 40px;
+
+  -o-keyframes: rotate 1s infinite linear;
+  -o-keyframes-transform-origin: 50% 50%;
+  width: 40px;
+  height: 40px;
+
+  -keyframes-animation: rotate 1s infinite linear;
+  -keyframes-transform-origin: 50% 50%;
+  width: 40px;
+  height: 40px;
+}
