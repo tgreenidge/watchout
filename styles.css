@@ -53,8 +53,8 @@ Feel free to use it if you like. */
   width: 40px;
   height: 40px;
 
-  -keyframes-animation: rotate 1s infinite linear;
-  -keyframes-transform-origin: 50% 50%;
+  keyframes-animation: rotate 1s infinite linear;
+  keyframes-transform-origin: 50% 50%;
   width: 40px;
   height: 40px;
 }
