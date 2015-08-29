@@ -21,3 +21,9 @@ var moveEnemies = function(){
 
 //call moveEnemies (setInterval)
 setInterval( moveEnemies , 1000);
+
+var drag = d3.behavior.drag()
+  .on("drag", function() {circle.attr("cx", d3.event.x)
+                                .attr("cy", d3.event.y);});
+  
+var circle = d3.select(".player").call(drag);
