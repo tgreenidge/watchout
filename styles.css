@@ -37,11 +37,22 @@ Feel free to use it if you like. */
   }
 }
 
+body {
+  background-color: #3AA5C1;
+}
+.game-name {
+  text-align: center; 
+}
+
+.scoreboard, .game-name {
+  font-family: 'Orbitron', sans-serif;
+}
+
 .shuriken {
   -webkit-animation: rotate 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
 
   -moz-keyframes: rotate 1s infinite linear;
   -moz-keyframes-transform-origin: 50% 50%;

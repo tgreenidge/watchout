@@ -2,8 +2,19 @@
 <html>
   <head>
     <link rel='stylesheet' type='css' href='styles.css'> 
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <div class="game-name">
+      <h1>Watchout</h1>
+      <hr>
+    </div>
+    <div class="scoreboard">
+      <!-- Modify the scoreboard when important events occur in your game! -->
+      <div>High score: <span class="high">0</span></div>
+      <div>Current score: <span class="current">0</span></div>
+      <div>Collisions: <span class="collisions">0</span></div>
+    </div>
     <div class="gameboard">
       <svg width="900" height="580">
         <svg class="enemy"><image class="shuriken" xlink:href="Shuriken.png" src="Shuriken.png" height="40" width="40"/></svg>
@@ -29,14 +40,7 @@
         <circle class="player" cx="800" cy="450" r="10" style="fill:magenta"/>
       </svg>
     </div>
-    <div class="scoreboard">
-      <!-- Modify the scoreboard when important events occur in your game! -->
-      <div>High score: <span class="high">0</span></div>
-      <div>Current score: <span class="current">0</span></div>
-      <div>Collisions: <span class="collisions">0</span></div>
-    </div>
-
-
+    
     <script src="d3.js" charset="utf-8"></script>
     <script src='watchout.js'></script>
   </body>
